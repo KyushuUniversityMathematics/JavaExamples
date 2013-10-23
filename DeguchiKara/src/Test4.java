@@ -1,10 +1,17 @@
+/**
+ * 数列から最長上昇列と最長下降列を探すプログラム (Swing版)
+ *
+ * @author  Yoshihiro Mizoguchi
+ * @version 0.1, 2013/10/23
+ * @since   JDK1.6
+ */
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 import java.util.Random;
 
-class Test4 extends JFrame implements ActionListener {
+public class Test4 extends JFrame implements ActionListener {
 	static JTextArea sizearea,viewarea;
 	static JRadioButton radio1;
 	static int x[] = new int[256], a[][] = new int[256][256], s, N;

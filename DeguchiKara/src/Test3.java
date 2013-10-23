@@ -1,3 +1,11 @@
+/**
+ * 数列から最長上昇列と最長下降列を探すプログラム (コマンドライン版)
+ *
+ * @author  Yoshihiro Mizoguchi
+ * @version 0.1, 2013/10/23
+ * @since   JDK1.6
+ */
+
 import java.util.Random;
 
 public class Test3  {
