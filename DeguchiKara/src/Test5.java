@@ -11,6 +11,7 @@ class Test5 extends JFrame implements ActionListener {
 	static JRadioButton radio1;
 	static int x[] = new int[256], a[][] = new int[256][256], s, N;
 	static JTable table;
+    static Vector<Vector> data=new Vector<Vector>();
 
 	  Test5(String title){
 	    setTitle(title);
@@ -49,34 +50,35 @@ class Test5 extends JFrame implements ActionListener {
 
 //        super(new GridLayout(1,0));
         
-        Vector<String> columnNames = new Vector<String>();
-        columnNames.addElement("長さ");
-        columnNames.addElement("1");
-        columnNames.addElement("2");
-        columnNames.addElement("3");
-        columnNames.addElement("4");
-        columnNames.addElement("5");
-        columnNames.addElement("6");
-        columnNames.addElement("7");
-        columnNames.addElement("8");
-        columnNames.addElement("9");
-  
-        Vector<Vector> data = new Vector<Vector>();
-        Vector<String>[] row = new Vector[9];
-        for(int i=0;i<9;i++) {
-        	row[i] = new Vector<String>();
-        	row[i].addElement("長さ"+Integer.toString(i+1)+":");
-            for(int j=1;j<9;j++) {
-            	row[i].addElement(Integer.toString(8*i+j));
-            }
-        	data.addElement(row[i]);
-        }
-                
-        table = new JTable(data, columnNames);
-        table.setPreferredScrollableViewportSize(new Dimension(400, 170));
-        table.setFillsViewportHeight(true);
-        table.setEnabled(false);
-         JScrollPane stable = new JScrollPane(table);
+//        Vector<String> columnNames = new Vector<String>();
+//        columnNames.addElement("長さ");
+//        columnNames.addElement("1");
+//        columnNames.addElement("2");
+//        columnNames.addElement("3");
+//        columnNames.addElement("4");
+//        columnNames.addElement("5");
+//        columnNames.addElement("6");
+//        columnNames.addElement("7");
+//        columnNames.addElement("8");
+//        columnNames.addElement("9");
+//  
+//        Vector<Vector> data = new Vector<Vector>();
+//        Vector<String>[] row = new Vector[9];
+//        for(int i=0;i<9;i++) {
+//        	row[i] = new Vector<String>();
+//        	row[i].addElement("長さ"+Integer.toString(i+1)+":");
+//            for(int j=1;j<9;j++) {
+//            	row[i].addElement(Integer.toString(8*i+j));
+//            }
+//        	data.addElement(row[i]);
+//        }
+//                
+//        table = new JTable(data, columnNames);
+//        table.setPreferredScrollableViewportSize(new Dimension(400, 170));
+//        table.setFillsViewportHeight(true);
+//        table.setEnabled(false);
+	    MyTable tbl = new MyTable();
+         JScrollPane stable = new JScrollPane(tbl);
          p.add(stable);
 	  }
 
@@ -153,5 +155,39 @@ static void printa(String text,boolean debug) {
 public static void main(String args[]){	
 		Test5 frame = new Test5("最長上昇列と下降列");
 		frame.setVisible(true);		
+	}
+}
+
+class MyTable extends JTable {
+	static JTable table;
+	MyTable () {
+    Vector<String> columnNames = new Vector<String>();
+    columnNames.addElement("長さ");
+    columnNames.addElement("1");
+    columnNames.addElement("2");
+    columnNames.addElement("3");
+    columnNames.addElement("4");
+    columnNames.addElement("5");
+    columnNames.addElement("6");
+    columnNames.addElement("7");
+    columnNames.addElement("8");
+    columnNames.addElement("9");
+
+    //　data = new Vector<Vector>();
+    Vector<String>[] row = new Vector[9];
+    for(int i=0;i<9;i++) {
+    	row[i] = new Vector<String>();
+    	row[i].addElement("長さ"+Integer.toString(i+1)+":");
+        for(int j=1;j<9;j++) {
+        	row[i].addElement(Integer.toString(8*i+j));
+        }
+    	data.addElement(row[i]);
+    }           
+    table = new JTable(data, columnNames);
+    table.setPreferredScrollableViewportSize(new Dimension(400, 170));
+    table.setFillsViewportHeight(true);
+    table.setEnabled(false);
+//     JScrollPane stable = new JScrollPane(table);
+//     p.add(stable);
 	}
 }
